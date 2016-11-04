@@ -44,7 +44,7 @@ class Reader():
     def prop_process(list):
         propositions = {}
         for i in list:
-            if !i.isalpha():
+            if not i.isalpha():
                 i = i.replace (" ", "_")
             if (i[0]!='-'):
                 propositions['i'] = caes.PropLiteral(i)
@@ -55,12 +55,16 @@ class Reader():
 
 
 
-
-
     def args_process(list):
+        delimiters = ['\n', ' ', ',', '.', '?']
         argumens = {}
         for arg in list:
             if re.match('[1-9]+\.', arg):
+
+
+            else:
+                print("you need to mark the number of each argument said as mentioned in the README")
+
 
 
 

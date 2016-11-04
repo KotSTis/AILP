@@ -1,8 +1,8 @@
 # README
- The reasosing behind the following syntax had in mind the triangular relation that the user should have an easy time inputing the data, another person who might want to read the original file and understand the argument that took place and the programmer so that he can parse everything correctly.
- 
+ The reasoning behind the following syntax had in mind the triangular relation that the user should have an easy time inputing the data, another person who might want to read the original file and understand the argument that took place and the programmer so that he can parse everything correctly.
+
 ## Some points that apply for the all the sections:
- - Each thing should be in ONE lines
+ - Each different hing should be in ONE line
  - Follow the syntax, otherwise the reader won't work
  - If you make a problem, the program will output the line that you messed up
 
@@ -16,6 +16,8 @@ e.g. PROPOSITIONS.(I'll have how you should start each section in brackets next 
  - Each line should contain only one proposition
 
 ### Arguments(ARGUMENTS)
- - start each line with '#.' where # is each respective argument's number
+ - start each argument with '#.' where # is each respective argument's number
+ - The actual argument should be structured in "so and so" claims/says that "this or that is true" because of "this or that", unless "this or that"
+ i.e. The eye witness claims that there was intent because of "reasons"(the propLiteral that intent would depend on), but if h
 
 ### Assumptions and weights(ASSUMPTIONS AND WEIGHTS)
