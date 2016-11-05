@@ -61,7 +61,7 @@ class Reader():
     def prop_process(list):
         propositions = {}
         for i in list:
-            if !i.isalpha():
+            if not i.isalpha():
                 i = i.replace (" ", "_")
             if (i[0]!='-'):
                 propositions['i'] = caes.PropLiteral(i)
