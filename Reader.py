@@ -1,4 +1,4 @@
-import caes
+#import caes
 import re
 import argparse
 import sys
@@ -9,17 +9,17 @@ class Reader():
     out_file = open('docstring.py','w')
 
 
-    propositions, arguments, assums_weights = extract_lines(file_name)
-    PropLiterals = prop_process(propositions)
-    ArgSet = args_process(arguments, PropLiterals)
-    AssumsWeights = assums_process(ArgSet, PropLiterals, assums_weights)
+
+    #PropLiterals = prop_process(propositions)
+    #ArgSet = args_process(arguments, PropLiterals)
+    #AssumsWeights = assums_process(ArgSet, PropLiterals, assums_weights)
 
 
 
     def extract_lines(file_name):
             #regex to find the section start
             props = re.compile('PROPOSITIONS')
-            args = re.compile('ASSUMPTIONS AND WEIGHTS')
+            args = re.compile('ARGUMENTS')
             assums = re.compile('ASSUMPTIONS AND WEIGHTS')
             #lists with each line of their respective sections
             propositions = []
@@ -38,7 +38,9 @@ class Reader():
 
                 f.seek(0)
                 propositions = f.readlines()[p+1:ar-1]
+                f.seek(0)
                 arguments = f.readlines()[ar+1:assu-1]
+                f.seek(0)
                 assums_weight = f.readlines()[assu+1:]
 
 
@@ -52,9 +54,9 @@ class Reader():
 
     def get_set_props(words, prop_dict):
         props = set()
-            for word in words:
-                if word in prop_dict.keys():
-                    props.add(prop_dict[word])
+        for word in words:
+            if word in prop_dict.keys():
+                props.add(prop_dict[word])
 
         return props
 
@@ -70,20 +72,14 @@ class Reader():
 
         return propositions
 
-<<<<<<< HEAD
 
-
-    def args_process(list):
-        delimiters = ['\n', ' ', ',', '.', '?']
-        argumens = {}
-=======
     def args_process(list, prop_dict):
         arguments = {}
         conclusion = set()
         premises = set()
         exceptions = set()
         words_pattern = re.compile(r'\b([a-zA-Z_]+)')
->>>>>>> origin/master
+
         for arg in list:
             argNum = re.match('[1-9]+\.', arg)
             if len(argNum):
@@ -109,16 +105,13 @@ class Reader():
 
                 arguments[arg + str(argNum)] = caes.Argument(conclusion, premises, exceptions)
             else:
-                print("you forgot to number your arguments!")
-
-<<<<<<< HEAD
-            else:
                 print("you need to mark the number of each argument said as mentioned in the README")
 
-
-
-=======
         return arguments
->>>>>>> origin/master
 
-    def assums_process(prop_dict, args_dict, l  ist):
+    propositions, arguments, assums_weights = extract_lines(file_name)
+    print(propositions,"\n")
+    print(arguments,"\n")
+    print(assums_weights,"\n")
+
+    #def assums_process(prop_dict, args_dict, list):

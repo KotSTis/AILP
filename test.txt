@@ -1,12 +1,19 @@
 PROPOSITIONS
-#sakdjhasjkhsajkd
-adjksadhkjasd
-d;lsakdlk;sj
+murder
+intent
+defendant
+medical expert
+witness1
+witness2
+
 ARGUMENTS
-asdlkasdjsalkd
-asdjkasdhsad
-dasjdkasd
+1. the medical expert claims murder and it depends on the witness1 but can be voided if unreliable1
+2. the wintess2 claims not_intent and it depends on unreliable1 but can be voided if witness1
+
 ASSUMPTIONS AND WEIGHTS
-asdhasdkj
-asdfklasjdas
-sadkjlasd
+asds
+123
+12365
+5467
+345
+2134
