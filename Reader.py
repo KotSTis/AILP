@@ -1,18 +1,11 @@
-#import caes
+import caes
 import re
 import argparse
 import sys
 
 
 class Reader():
-    file_name = sys.argv[1]
-    out_file = open('docstring.py','w')
 
-
-
-    #PropLiterals = prop_process(propositions)
-    #ArgSet = args_process(arguments, PropLiterals)
-    #AssumsWeights = assums_process(ArgSet, PropLiterals, assums_weights)
 
 
 
@@ -70,11 +63,12 @@ class Reader():
             else:
                 propositions['i'] = caes.PropLiteral(i).negate()
 
-        return propositions
+        return propositions, proof_standards
 
 
     def args_process(list, prop_dict):
         arguments = {}
+        ArgSet = caes.ArgumentSet()
         conclusion = set()
         premises = set()
         exceptions = set()
@@ -107,11 +101,25 @@ class Reader():
             else:
                 print("you need to mark the number of each argument said as mentioned in the README")
 
-        return arguments
+        for key, value in arguments:
+            argset.add_argument(value, arg_id=key)
 
-    propositions, arguments, assums_weights = extract_lines(file_name)
-    print(propositions,"\n")
-    print(arguments,"\n")
-    print(assums_weights,"\n")
+        return ArgSet, arguments
+
 
     #def assums_process(prop_dict, args_dict, list):
+
+    file_name = sys.argv[1]
+    out_file = open('docstring.py','w')
+
+
+    propositions, arguments, assums_weights = extract_lines(file_name)
+
+    #AssumsWeights = assums_process(ArgSet, PropLiterals, assums_weights)
+
+    print(propositions)
+    print(arguments)
+    print(assums_weights)
+
+    PropLiterals = prop_process(propositions)
+    ArgSet, arg_dict = args_process(arguments, PropLiterals)
