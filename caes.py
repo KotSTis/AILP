@@ -174,7 +174,7 @@ from carneades.tracecalls import TraceCalls
 LOGLEVEL = logging.DEBUG
 # Uncomment the following line to raise the logging level and thereby turn off
 # debug messages
-# LOGLEVEL = logging.INFO
+LOGLEVEL = logging.INFO
 
 
 logging.basicConfig(format='%(levelname)s: %(message)s', level=LOGLEVEL)
@@ -342,8 +342,8 @@ class ArgumentSet(object):
             return self.graph.vs.select(prop=proposition)[0]
 
         else:
-            raise TypeError('Input {} should be PropLiteral'.\
-                            format(proposition))
+            raise TypeError('Input {} should be PropLiteral {}'.\
+                            format(proposition, type(proposition)))
 
     def add_argument(self, argument, arg_id=None):
         """

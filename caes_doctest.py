@@ -143,7 +143,7 @@ True
 
 if __name__ == '__main__':
     import os, sys
-    sys.path.append(os.path.join(os.path.dirname(__file__), '..'))    
+    sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
     from carneades.caes import *
     from carneades.tracecalls import TraceCalls
     import doctest
