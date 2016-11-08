@@ -1,16 +1,16 @@
 # README
 
-    First and foremost, to be able to run this file, you need the CAES system python implementation, obviously. You also need to put the Reader.py file inside the 'carneades/src/carneades' folder.
+First and foremost, to be able to run this file, you need the CAES system python implementation, obviously. You also need to put the Reader.py file inside the 'carneades/src/carneades' folder.
 
-    This is a how you run the code. you don't need to pass an open file to the program, just the string containing the file's relative directory
+This is a how you run the code. you don't need to pass an open file to the program, just the string containing the file's relative directory
     >>> import Reader
     >>> file_name = 'test.txt'
     >>> caes_obj = Reader.make_caes(file_name)
 
-    This will produce a graph.dot file, which you can turn into a viewable picture using the "$ dot -Tps graph.dot -o outfile.ps" command.
+This will produce a graph.dot file, which you can turn into a viewable picture using the "$ dot -Tps graph.dot -o outfile.ps" command.
 That's it from a technical aspect. If you follow the following syntax instructions, you should be good to go! Any questions, can be directed at konstantinaras+caes@gmail.com.
 
-    The reasoning behind the following syntax had in mind the triangular relation that the user should have an easy time inputing the data, another person who might want to read the original file and
+The reasoning behind the following syntax had in mind the triangular relation that the user should have an easy time inputing the data, another person who might want to read the original file and
 understand the argument that took place and the programmer so that he can parse everything correctly.
 
 
