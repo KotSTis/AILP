@@ -3,6 +3,7 @@
 First and foremost, to be able to run this file, you need the CAES system python implementation, obviously. You also need to put the Reader.py file inside the 'carneades/src/carneades' folder.
 
 This is a how you run the code. you don't need to pass an open file to the program, just the string containing the file's relative directory
+
     >>> import Reader
     >>> file_name = 'test.txt'
     >>> caes_obj = Reader.make_caes(file_name)
