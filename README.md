@@ -23,12 +23,12 @@ understand the argument that took place and the programmer so that he can parse 
  - If a propositional literal with two words then you shold replace the space
     with an underscore.(e.g. medical expert->medical_expert)
 
-### How to split the different sections
+## How to split the different sections
 
 Each section should start with a line that only has the name of the section in all capitals.
 e.g. PROPOSITIONS.(I'll have how you should start each section in brackets next to it)
 
-### Propositions(PROPOSITIONS)
+## Propositions(PROPOSITIONS)
 
  - Write the name of the proposition and keep it that way for the entire file
  - If you want to give a negative proposition, put '-' in front of it
@@ -39,7 +39,7 @@ e.g. PROPOSITIONS.(I'll have how you should start each section in brackets next 
  - Possible values for proof standards: "preponderance", "clear_and_convincing",
     "beyond_reasonable_doubt", and "dialectical_validity".
 
-### Arguments(ARGUMENTS)
+## Arguments(ARGUMENTS)
 
  - start each argument with '#.' where # is each respective argument's number
  - The actual argument should be structured in "so and so" claims/says that
@@ -55,7 +55,7 @@ e.g. PROPOSITIONS.(I'll have how you should start each section in brackets next 
     depends on kill and intent. These can be expressed in the following way: "murder depends on intent and kill"
     that is, there is no need for somebody to claim or say it.
 
-##Assumptions Weights
+## Assumptions Weights
 - This section should be 2 lines long, (assumptions, weights and the proposition we are trying to determine if true)
 - If the audience(jury) has no assumptions, write "no assumptions"
 - list the propositions that the audience assumes to be true, comma separated
@@ -69,6 +69,7 @@ e.g. PROPOSITIONS.(I'll have how you should start each section in brackets next 
 PROPOSITIONS
 murder (beyond_reasonable_doubt)
 intent
+-intent
 defendant
 medical_expert
 witness1
@@ -78,15 +79,15 @@ evidence
 kill
 
 ARGUMENTS
-1. the medical expert claims murder and it depends on the witness1 but can be voided if unreliable1
-2. the wintess2 claims not_intent and it depends on unreliable1 but can be voided if witness1
+1. the medical expert claims murder and it depends on the witness2 but can be voided if unreliable1
+2. the wintess2 claims -intent and it depends on unreliable1 but can be voided if witness1
 3. murder depends on intent and kill
-4.
-5.
+4. witness1 claims intent and it depends on evidence
+5. defendant claims -intent and it depends on wintess2
 
 ASSUMPTIONS AND WEIGHTS
 evidence, kill
-0.6, 0.5
+0.6, 0.5, 0.8 , 0.5, 0.5
 
 ### Example input 2
 PROPOSITIONS
