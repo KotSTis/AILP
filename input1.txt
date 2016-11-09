@@ -1,0 +1,22 @@
+#### PROPOSITIONS
+murder (beyond_reasonable_doubt)
+intent
+-intent
+defendant
+medical_expert
+witness1
+witness2
+unreliable1
+evidence
+kill
+
+#### ARGUMENTS
+1. the medical expert claims murder and it depends on the witness2 but can be voided if unreliable1
+2. the wintess2 claims -intent and it depends on unreliable1 but can be voided if witness1
+3. murder depends on intent and kill
+4. witness1 claims intent and it depends on evidence
+5. defendant claims -intent and it depends on wintess2
+
+#### ASSUMPTIONS AND WEIGHTS
+evidence, kill
+0.6, 0.5, 0.8 , 0.5, 0.5

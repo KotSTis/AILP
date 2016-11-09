@@ -5,7 +5,7 @@ First and foremost, to be able to run this file, you need the CAES system python
 This is a how you run the code. you don't need to pass an open file to the program, just the string containing the file's relative directory
 
     >>> import Reader
-    >>> file_name = 'test.txt'
+    >>> file_name = 'filename.txt'
     >>> caes_obj = Reader.make_caes(file_name)
 
 This will produce a graph.dot file, which you can turn into a viewable picture using the "$ dot -Tps graph.dot -o outfile.ps" command.
@@ -41,20 +41,24 @@ e.g. PROPOSITIONS.(I'll have how you should start each section in brackets next 
 
 ## Arguments(ARGUMENTS)
 
- - start each argument with '#.' where # is each respective argument's number
- - The actual argument should be structured in "so and so" claims/says that
+- start each argument with '#.' where # is each respective argument's number
+- The actual argument should be structured in "so and so" claims/says that
     "this or that is true" because of "this or that", unless "this or that"
- i.e. The eye witness claims that there was intent because of "reasons" (the propLiteral that intent would depend on), but if h
- - if somebody in their argument claims that something is false, make sure to have
+ i.e. The eye witness claims that there was intent because of "reasons" (the propLiteral that intent would depend on), but if
+- if somebody in their argument claims that something is false, make sure to have
     the negation of the propLiteral as another Proposition on the top.
     i.e. if somebody claims intent is false you should write that in the arguments
     section as: x claims -intent....
     and in the propositions you should have -intent as well as intent if somebody claims
     that intent is true
- - Some arguments don't have somebody that makes the claim, i.e. the fact that murder
+- Some arguments don't have somebody that makes the claim, i.e. the fact that murder
     depends on kill and intent. These can be expressed in the following way: "murder depends on intent and kill"
     that is, there is no need for somebody to claim or say it.
-
+ -  conclusion words: claims, says
+ -  premise words: depends, requires
+ -  exception words: voided, nullified
+- Please have the argument written in this format: conclusion words "conclusion" premise words "premise" exception words "exceptions"
+- When
 ## Assumptions Weights
 - This section should be 2 lines long, (assumptions, weights and the proposition we are trying to determine if true)
 - If the audience(jury) has no assumptions, write "no assumptions"
@@ -66,7 +70,7 @@ e.g. PROPOSITIONS.(I'll have how you should start each section in brackets next 
 
 ### Example input 1
 
-PROPOSITIONS
+#### PROPOSITIONS
 murder (beyond_reasonable_doubt)
 intent
 -intent
@@ -78,27 +82,27 @@ unreliable1
 evidence
 kill
 
-ARGUMENTS
+#### ARGUMENTS
 1. the medical expert claims murder and it depends on the witness2 but can be voided if unreliable1
 2. the wintess2 claims -intent and it depends on unreliable1 but can be voided if witness1
 3. murder depends on intent and kill
 4. witness1 claims intent and it depends on evidence
 5. defendant claims -intent and it depends on wintess2
 
-ASSUMPTIONS AND WEIGHTS
+#### ASSUMPTIONS AND WEIGHTS
 evidence, kill
 0.6, 0.5, 0.8 , 0.5, 0.5
 
 ### Example input 2
-PROPOSITIONS
+#### PROPOSITIONS
 
-ARGUMENTS
+#### ARGUMENTS
 
-ASSUMPTIONS AND WEIGHTS
+#### ASSUMPTIONS AND WEIGHTS
 
 ### Example input 3
-PROPOSITIONS
+#### PROPOSITIONS
 
-ARGUMENTS
+#### ARGUMENTS
 
-ASSUMPTIONS AND WEIGHTS
+#### ASSUMPTIONS AND WEIGHTS

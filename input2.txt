@@ -1,0 +1,18 @@
+PROPOSITIONS
+murder (beyond_reasonable_doubt)
+intent
+defendant
+medical_expert
+kill
+witness1
+witness2
+unreliable1
+
+ARGUMENTS
+
+1. murder depends on intent and kill
+2. defendant claims that intent depends on witness1
+
+ASSUMPTIONS AND WEIGHTS
+kill
+0.6, 0.4
