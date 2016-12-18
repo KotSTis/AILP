@@ -6,7 +6,8 @@ import sys
 def extract_lines(file_name):
         #regex to find the section start
         props = re.compile('PROPOSITIONS')
-        args = re.compile('ARGUMENTS')
+        args_for = re.compile('ARGUMENTS FOR')
+        args_against = re.compile('ARGUMENTS AGAINST')
         assums = re.compile('ASSUMPTIONS AND WEIGHTS')
         #lists with each line of their respective sections
         propositions = []
@@ -18,26 +19,31 @@ def extract_lines(file_name):
             for i, line in enumerate(f):
                 if props.match(line):
                     p = i;
-                if args.match(line):
-                    ar = i;
+                if args_for.match(line):
+                    arf = i;
+                if args_against.match(line):
+                    ara = i
                 if assums.match(line):
                     assu = i;
 
             f.seek(0)
-            propositions = f.readlines()[p+1:ar-1]
+            propositions = f.readlines()[p+1:arf-1]
             f.seek(0)
-            arguments = f.readlines()[ar+1:assu-1]
+            arguments_for = f.readlines()[arf+1:ara-1]
+            f.seek(0)
+            arguments_against = f.readlines()[ara+1:arf-1]
             f.seek(0)
             assums_weight = f.readlines()[assu+1:]
 
 
         #stripping newlines and removing comment lines that start with '#'
         propositions = [i.strip('\n') for i in propositions if i[0]!='#']
-        arguments = [i.strip('\n') for i in arguments if i[0]!='#']
+        arguments_for = [i.strip('\n') for i in arguments_for if i[0]!='#']
+        arguments_against = [i.strip('\n') for i in arguments_against if i[0]!='#']
         assums_weights = [i.strip('\n') for i in assums_weight if i[0]!='#']
 
 
-        return propositions, arguments, assums_weights
+        return propositions, arguments_for, arguments_against, assums_weights
 
 def prop_process(list_prop):
     propositions = {}
@@ -128,14 +134,9 @@ def args_process(list_args, prop_dict):
         else:
             print("you need to mark the number of each argument said as mentioned in the README")
             exit
-    #this loop takes all the arguments in the dictionay and puts them in the
-    #ArgumentSet Caes structure
-    for key, value in arguments.items():
-    	arg_set.add_argument(value, arg_id=key)
+    return arguments
 
-    return arg_set, arguments
-
-def audience_make(prop_dict, args_dict, list_aud):
+def audience_make(prop_dict, args_dict, list_aud, cutoffpoint):
     assumptions = set()
     if not list_aud[0] == 'no assumptions':
         assumptions_raw = [line.strip() for line in list_aud[0].split(',')]
@@ -151,18 +152,10 @@ def audience_make(prop_dict, args_dict, list_aud):
     if not len(weights_raw) == len(args_dict):
         print("you seem to not have weights for every argument, please do that.")
     else:
-        for weight in weights_raw:
-            weights[args_dict['arg'+str(i)]] = weight
+        for weight in weights_raw[:cutoffpoint]:
+            prop_weights[args_dict['arg'+str(i)]] = weight
             i+=1;
-    caes_audience = caes.Audience(assumptions,weights)
-    return caes_audience
-
-
-def make_caes(file_name):
-    propositions, arguments, assums_weights = extract_lines(file_name)
-    PropLiterals, proofs = prop_process(propositions)
-    ArgSet, arg_dict = args_process(arguments, PropLiterals)
-    audience = audience_make(PropLiterals, arg_dict, assums_weights)
-    ArgSet.write_to_graphviz()
-    caes_object = caes.CAES(ArgSet, audience, proofs)
-    return caes_object
+        for weight in weights_raw[cutoffpoint+1:]:
+            def_weights[args_dict['arg'+str(i)]] = weight
+            i+=1
+    return assumptions,def_weights, prop_weights
