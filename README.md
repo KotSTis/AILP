@@ -33,7 +33,8 @@ Each section should start with a line that only has the name of the section in a
 - If a certain proposition requires a proof standard other than scintilla then you should indicate it by enclosing it in brackets next to the literal when you declare the literal. i.e. murder (preponderance)
 - Possible values for proof standards: "preponderance", "clear_and_convincing", "beyond_reasonable_doubt", and "dialectical_validity".
 
-## Arguments(ARGUMENTS)
+## Arguments(('ARGUMENTS PROSECUTION' and 'ARGUMENTS DEFENCE'))
+
 
 - start each argument with '#.' where # is each respective argument's number
 - The actual argument should be structured in "so and so" claims/says that "this or that is true" because of "this or that", unless "this or that" i.e. The eye witness claims that there was intent because of "reasons" (the propLiteral that intent would depend on), but if
@@ -46,7 +47,7 @@ Each section should start with a line that only has the name of the section in a
 
 - Please have the argument written in this format: conclusion words "conclusion" premise words "premise" exception words "exceptions"
 
-- When
+- the arguments for must come first and the arugments against second. They are two separate sections but share numbering, for example if there are 10 arguments for, then the first argument against will be number 11. This is because the weights are all in the same section continuously so as to not confuse the system
 
   ## Assumptions Weights
 
@@ -61,19 +62,30 @@ Each section should start with a line that only has the name of the section in a
 - The first value of the weights will correspond to the first argument and so on and so forth
 - The value of each weight should be [0,1]. The decimal point should be a dot and not a comma.
 
-### Example input 1
+### Example input
 
 #### PROPOSITIONS
 
-murder (beyond_reasonable_doubt) intent -intent defendant medical_expert witness1 witness2 unreliable1 evidence kill
+murder (beyond_reasonable_doubt)
+intent
+-intent
+defendant
+medical_expert
+witness1
+witness2
+unreliable1
+evidence
+kill
+lawyer1
 
-#### ARGUMENTS
+#### ARGUMENTS PROSECUTION
+1. the medical expert claims murder and it depends on the witness2 but can be voided if unreliable1  
+2. lawyer1 claims murder depends on intent and kill  
+3. witness1 claims intent and it depends on evidence  
 
-1. the medical expert claims murder and it depends on the witness2 but can be voided if unreliable1
-2. the wintess2 claims -intent and it depends on unreliable1 but can be voided if witness1
-3. murder depends on intent and kill
-4. witness1 claims intent and it depends on evidence
-5. defendant claims -intent and it depends on wintess2
+#### ARGUMENTS DEFENCE  
+4. the wintess2 claims -intent and it depends on unreliable1 but can be voided if witness1  
+5. defendant claims -intent and it depends on wintess2  
 
 #### ASSUMPTIONS AND WEIGHTS
 

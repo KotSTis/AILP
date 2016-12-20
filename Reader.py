@@ -6,8 +6,8 @@ import sys
 def extract_lines(file_name):
         #regex to find the section start
         props = re.compile('PROPOSITIONS')
-        args_for = re.compile('ARGUMENTS FOR')
-        args_against = re.compile('ARGUMENTS AGAINST')
+        args_for = re.compile('ARGUMENTS PROSECUTION')
+        args_against = re.compile('ARGUMENTS DEFENCE')
         assums = re.compile('ASSUMPTIONS AND WEIGHTS')
         #lists with each line of their respective sections
         propositions = []
@@ -71,7 +71,7 @@ def prop_process(list_prop):
         ps = caes.ProofStandard(proof_standards)
     return propositions, ps
 
-def args_process(list_args, prop_dict):
+def prop_args_process(list_args, prop_dict):
     #filtering any empty lines
     list_args = list(filter(None, list_args))
     #initializing argument dictionary
