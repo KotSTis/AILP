@@ -89,4 +89,5 @@ lawyer1
 
 #### ASSUMPTIONS AND WEIGHTS
 
-evidence, kill 0.6, 0.5, 0.8 , 0.5, 0.5
+evidence, kill  
+0.6, 0.5, 0.8 , 0.5, 0.5
